@@ -15,7 +15,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import javax.swing.*;
 import java.time.Duration;
 import java.util.List;
 import java.util.Set;
@@ -36,8 +35,8 @@ public class ithsSteps {
     public void setup() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--incognito");
-        //options.addArguments("--headless=new");
-        //options.addArguments("--disable-gpu");
+        options.addArguments("--headless=new");
+        options.addArguments("--disable-gpu");
         driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
@@ -177,6 +176,7 @@ public class ithsSteps {
         assertFalse(this.visibleObject);
     }
 
+    // Scenario 7
     @Given("user is on main page")
     public void user_is_on_main_page() {
         driver.get("https://www.iths.se/");
@@ -184,39 +184,25 @@ public class ithsSteps {
         WebElement cookieConsentAllowAll = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll")));
         cookieConsentAllowAll.click();
     }
-
     @When("hover over item")
     public void hover_over_item() throws InterruptedException {
         Thread.sleep(5000);
-        List<WebElement> headerItems = driver.findElement(By.xpath("//*[@id='nav-frstuderande']"));
-        for (WebElement headerItem : headerItems) {
-            if (headerItem.getSize().getHeight() == 100) {
-                Actions action = new Actions(driver);
-                action.moveToElement(headerItem).perform();
-                break;
-            }
-        }
+        WebElement headerItem = driver.findElement(By.xpath("//*[@id='nav-frstuderande']"));
+        Actions action = new Actions(driver);
+        action.moveToElement(headerItem).perform();
     }
-
     @And("selects nested item")
     public void selects_nested_item() throws InterruptedException {
         Thread.sleep(5000);
-        List<WebElement> menuItems = driver.findElements(By.xpath("//*[@id=\"nav-preparandkurser\"]"));
-        for (WebElement menuItem : menuItems) {
-            if (menuItem.getSize().getHeight() == 60) {
-                Actions action = new Actions(driver);
-                action.moveToElement(menuItem).click().perform();
-                break;
-            }
-        }
+        WebElement menuItem = driver.findElement(By.xpath("//*[@id=\"nav-preparandkurser\"]"));
+        Actions action = new Actions(driver);
+        action.moveToElement(menuItem).click().perform();
     }
-
     @Then("new page should be {string}")
     public void new_page_should_be(String expectedTitle) throws InterruptedException {
         Thread.sleep(5000);
         assertEquals(expectedTitle, driver.getTitle());
     }
-
     @After
     public void teardown() {
         if (driver != null) {
