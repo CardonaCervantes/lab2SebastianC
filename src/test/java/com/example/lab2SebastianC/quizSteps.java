@@ -41,7 +41,6 @@ public class quizSteps {
     }
     @And("the user accepts all cookies")
     public void the_user_accepts_all_cookies () {
-        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement cookieConsentAllowAll = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll")));
         cookieConsentAllowAll.click();
     }
