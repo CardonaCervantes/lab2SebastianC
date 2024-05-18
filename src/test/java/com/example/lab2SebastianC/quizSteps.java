@@ -34,7 +34,6 @@ public class quizSteps {
         driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
-
     @Given("the user lands on the page {string}")
     public void the_user_lands_on_the_page(String url) {
         driver.get(url);
