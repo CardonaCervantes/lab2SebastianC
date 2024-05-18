@@ -76,15 +76,12 @@ public class quizSteps {
         Thread.sleep(1000);
         option_1.click();
     }
-
-
     @And("the user selects option '2' on step '4'")
     public void the_user_selects_option_on_step_4() throws InterruptedException {
         WebElement option_1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#qp_main22346631 > div.qp_ao > div > div:nth-child(2) > div > span")));
         Thread.sleep(1000);
         option_1.click();
     }
-
     @And("the user selects option '1' on step '5'")
     public void the_user_selects_option_on_step_5() throws InterruptedException {
         WebElement option_1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#qp_main22346632 > div.qp_ao > div > div:nth-child(1) > div > span")));
