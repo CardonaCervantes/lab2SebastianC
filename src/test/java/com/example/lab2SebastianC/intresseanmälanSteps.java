@@ -63,7 +63,7 @@ public class intresseanmälanSteps {
         boolean redBoxDisplayed= redBox.isDisplayed();
         assertAll(
                 () -> assertEquals(aProblem, actualResult),
-                () -> assertTrue(redBoxDisplayed)
+                () -> assertFalse(redBoxDisplayed)
         );
     }
     @After
