@@ -175,7 +175,6 @@ public class ithsSteps {
     public void the_object_x_is_not_visible() {
         assertFalse(this.visibleObject);
     }
-
     // Scenario 7
     @Given("user is on main page")
     public void user_is_on_main_page() {
