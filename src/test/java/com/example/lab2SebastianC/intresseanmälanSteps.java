@@ -31,6 +31,7 @@ public class intresseanmälanSteps {
         driver = new ChromeDriver(options);
     }
 
+
     //Feature 2: instresseanmälan.feature
     @Given("the user is on the page {string}")
     public void the_user_is_on_the_page(String linkText) {
