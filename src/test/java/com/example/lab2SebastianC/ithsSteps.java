@@ -183,6 +183,7 @@ public class ithsSteps {
         WebElement cookieConsentAllowAll = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll")));
         cookieConsentAllowAll.click();
     }
+
     @When("hover over item")
     public void hover_over_item() throws InterruptedException {
         Thread.sleep(5000);
